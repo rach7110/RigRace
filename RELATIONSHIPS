@@ -1,0 +1,30 @@
+CLASS PROPERTIES & RELATIONSHIPS:
+
+****** BOAT ******
+A Boat has a name.
+A Boat has a rating.
+A Boat has a skipper.
+
+A Boat belongs to many Races
+A Boat has many Scores
+
+****** RACE ******
+A Race has a number.
+A Race has a distance.
+A Race has a start time.
+
+A Race belongs to a Fleet.
+
+****** FLEET ******
+a Fleet has a name.
+
+A Fleet has many Races.
+
+****** SCORE ******
+A Score has points.
+A Score has a penalty point (default = 0).
+A Score has total points.
+
+A Score belongs to a Race.
+A Score belongs to a Registrant.
+A Score belongs to a Boat.

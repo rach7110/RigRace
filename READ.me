@@ -1,0 +1,41 @@
+***************************
+PHP Style Guide:
+***************************
+methods - app: camelCase()
+
+methods - testing: under_score()
+
+class: StudlyCaps
+
+constants: ALL_UPCASE
+
+properties, variables, arguments: $under_score
+
+***************************
+Schema Design:
+***************************
+https://app.quickdatabasediagrams.com
+
+
+***************************
+Definitions:
+***************************
+PHRF - Performance Handicap Racing Fleet
+
+PHRF TOD - PHRF time on distance
+
+PHRF TOT - PHRF time on time
+
+
+
+***************************
+Calculations:
+***************************
+
+PHRF TOD:
+    corrected time = elpased time - (PHRF handicap * distance)
+
+PHRF TOT:
+    corrected time = elapsed time * ( A-factor / ( B-factor + PHRF handicap) )
+
+
