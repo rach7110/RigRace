@@ -1,5 +1,12 @@
 CLASS PROPERTIES & RELATIONSHIPS:
 
+****** RACE ******
+A Race has a number.
+A Race has a distance.
+A Race has a start time.
+
+A Race belongs to a Fleet.
+
 ****** BOAT ******
 A Boat has a name.
 A Boat has a rating.
@@ -8,12 +15,6 @@ A Boat has a skipper.
 A Boat belongs to many Races
 A Boat has many Scores
 
-****** RACE ******
-A Race has a number.
-A Race has a distance.
-A Race has a start time.
-
-A Race belongs to a Fleet.
 
 ****** FLEET ******
 a Fleet has a name.
