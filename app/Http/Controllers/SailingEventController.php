@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use App\Event;
+use App\SailingEvent;
 
-class EventController extends Controller
+class SailingEventController extends Controller
 {
 
     public function __construct()
@@ -21,7 +21,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('events.index');
+        $user = Auth::user();
+
+
+        $events = $user->sailing_events()->get();
+
+        return view('sailing_events.index')->with('events', $events);
     }
 
     /**
@@ -31,7 +36,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('sailing_events.create');
     }
 
     /**
@@ -44,7 +49,7 @@ class EventController extends Controller
     {
         $user = Auth::user();
 
-        $event = new Event;
+        $event = new SailingEvent;
         $event->eventname = $request->input('eventname');
         $event->host = $request->input('host');
         $event->start_date = $request->input('start_date');

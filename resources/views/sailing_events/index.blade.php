@@ -18,7 +18,11 @@
                 <div class="panel-heading">My Events</div>
 
                 <div class="panel-body">
-                (placeholder for event list)
+                @foreach ($events as $event)
+                    <div>
+                        {{$event->eventname}}
+                    </div>
+                @endforeach
                 </div>
             </div>
         </div>
