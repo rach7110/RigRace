@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
+use App\Event;
 
 class EventController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +42,23 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $event = new Event;
+        $event->eventname = $request->input('eventname');
+        $event->host = $request->input('host');
+        $event->start_date = $request->input('start_date');
+        $event->end_date = $request->input('end_date');
+        $event->user_id = $user->id;
+
+        if($event->save())
+        {
+            return redirect('events')->with('status', 'Event created!');
+        } else {
+            return back()->withInput();
+        }
+
+        // echo "Created! (sort of)";
     }
 
     /**
