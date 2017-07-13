@@ -53,12 +53,14 @@ class EventController extends Controller
 
         if($event->save())
         {
-            return redirect('events')->with('status', 'Event created!');
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Event was successfully added!');
         } else {
-            return back()->withInput();
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error!');
         }
 
-        // echo "Created! (sort of)";
+        return redirect('events');
     }
 
     /**

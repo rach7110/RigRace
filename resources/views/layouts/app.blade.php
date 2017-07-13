@@ -70,7 +70,21 @@
                 </div>
             </div>
         </nav>
+        <!-- FLASH MESSAGES -->
+        @if(session()->has('message.level'))
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10 alert alert-{{ session('message.level') }} alert-dismissible" role="alert"> 
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {!! session('message.content') !!}
+                </div>
+            </div>
+        </div>
+        @endif
 
+        <!-- CONTENT -->
         @yield('content')
     </div>
 
