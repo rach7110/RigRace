@@ -1,5 +1,15 @@
 USER JOURNIES:
 
+a User can create an Event.  **** DONE ****
+a User can view all their Events. **** DONE ****
+a User can edit an Event.
+a User can delete an Event.
+
+
+a User can create a Race for an Event.
+a User can add a Boat to an Event.
+
+
 A User can create a Race.
 A User can set a Race number.
 A User can set a Race distance.
