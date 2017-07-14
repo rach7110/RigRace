@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function sailing_events() 
+    public function results() 
     {
-        return $this->hasMany('App\SailingEvent');
+        return $this->hasMany('App\Result');
     }
 }

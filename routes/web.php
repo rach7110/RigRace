@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ResultController@index')->name('home');
 
-Route::resource('events', 'SailingEventController');
+Route::resource('results', 'ResultController');

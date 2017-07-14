@@ -14,11 +14,11 @@
 
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-            <h1>Create New Event</h1>
+            <h1>Create New Results</h1>
         </div>
     </div>
 
-    <form class="form-horizontal" method="post" action="{{route('events.store')}}">
+    <form class="form-horizontal" method="post" action="{{route('results.store')}}">
         {{ csrf_field() }}
         <!-- EVENT NAME -->
         <div class="form-group">
@@ -27,7 +27,7 @@
                 <input type="text" name="eventname" id="eventname" class="form-control"  value="{{old('eventname')}}" placeholder="2017 Summer Series Races">
             </div>
         </div>
-        <!-- EVENT HOST -->
+        <!-- HOST -->
         <div class="form-group">
             <label for="host" class="col-sm-2 control-label">Host</label>
             <div class="col-sm-10">

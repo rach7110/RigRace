@@ -1,11 +1,11 @@
 CLASS PROPERTIES & RELATIONSHIPS:
 
-****** EVENT ******
-An Event has a name
-An Event has a start date
-An Event has a end date
-An Event has a host
-An Event has a user_id (foreign key)
+****** RESULT ******
+A Result has a name
+A Result has a start date
+A Result has a end date
+A Result has a venue
+A Result has a user_id (foreign key)
 
 
 ****** RACE ******
@@ -22,7 +22,7 @@ A Boat has a name.
 A Boat has a rating.
 A Boat has a skipper.
 
-A Boat belongs to many Events.
+A Boat belongs to many Results.
 A Boat belongs to many Races
 A Boat has many Scores
 

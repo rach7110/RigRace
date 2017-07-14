@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use App\SailingEvent;
+use App\Result;
 
-class SailingEventController extends Controller
+class ResultController extends Controller
 {
 
     public function __construct()
@@ -24,9 +24,9 @@ class SailingEventController extends Controller
         $user = Auth::user();
 
 
-        $events = $user->sailing_events()->get();
+        $results = $user->results()->get();
 
-        return view('sailing_events.index')->with('events', $events);
+        return view('results.index')->with('results', $results);
     }
 
     /**
@@ -36,7 +36,7 @@ class SailingEventController extends Controller
      */
     public function create()
     {
-        return view('sailing_events.create');
+        return view('results.create');
     }
 
     /**
@@ -49,23 +49,23 @@ class SailingEventController extends Controller
     {
         $user = Auth::user();
 
-        $event = new SailingEvent;
-        $event->eventname = $request->input('eventname');
-        $event->host = $request->input('host');
-        $event->start_date = $request->input('start_date');
-        $event->end_date = $request->input('end_date');
-        $event->user_id = $user->id;
+        $result = new Result;
+        $result->eventname = $request->input('eventname');
+        $result->host = $request->input('host');
+        $result->start_date = $request->input('start_date');
+        $result->end_date = $request->input('end_date');
+        $result->user_id = $user->id;
 
-        if($event->save())
+        if($result->save())
         {
             $request->session()->flash('message.level', 'success');
-            $request->session()->flash('message.content', 'Event was successfully added!');
+            $request->session()->flash('message.content', 'Result group was successfully added!');
         } else {
             $request->session()->flash('message.level', 'danger');
             $request->session()->flash('message.content', 'Error!');
         }
 
-        return redirect('events');
+        return redirect('results');
     }
 
     /**
