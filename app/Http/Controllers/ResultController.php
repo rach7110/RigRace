@@ -63,6 +63,8 @@ class ResultController extends Controller
         } else {
             $request->session()->flash('message.level', 'danger');
             $request->session()->flash('message.content', 'Error!');
+
+            return back()->withInput();
         }
 
         return redirect('results');
