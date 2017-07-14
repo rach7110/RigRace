@@ -15,7 +15,8 @@ A Race has a distance.
 A Race has a start time.
 
 A Race belongs to a User.
-A Race belongs to a Fleet.
+A Race belongs to a Result.
+A Race belongs to a Fleet ?
 
 ****** BOAT ******
 A Boat has a name.

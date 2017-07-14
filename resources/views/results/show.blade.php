@@ -3,6 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-sm-2">
+            <a href="{{ route('results.index') }}">
+                < All Results
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-2 pull-right">
             <a href="">
                 <button class="btn btn-primary">Add Boat</button>
