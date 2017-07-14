@@ -78,7 +78,9 @@ class ResultController extends Controller
      */
     public function show($id)
     {
-        //
+        $result = Result::find($id);
+
+        return view('results.show')->with('result', $result);
     }
 
     /**
