@@ -51,7 +51,7 @@ class ResultController extends Controller
 
         $result = new Result;
         $result->eventname = $request->input('eventname');
-        $result->host = $request->input('host');
+        $result->venue = $request->input('venue');
         $result->start_date = $request->input('start_date');
         $result->end_date = $request->input('end_date');
         $result->user_id = $user->id;

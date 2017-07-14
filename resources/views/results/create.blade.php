@@ -29,9 +29,9 @@
         </div>
         <!-- HOST -->
         <div class="form-group">
-            <label for="host" class="col-sm-2 control-label">Host</label>
+            <label for="venue" class="col-sm-2 control-label">Venue</label>
             <div class="col-sm-10">
-                <input type="text" name="host" class="form-control" id="host" value="{{ old('host')}}"  placeholder="Windy Yacht Club" >
+                <input type="text" name="venue" class="form-control" id="venue" value="{{ old('venue')}}"  placeholder="Windy Yacht Club" >
             </div>
         </div>
         <!-- START DATE -->
