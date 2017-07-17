@@ -23,8 +23,7 @@ class ResultController extends Controller
     {
         $user = Auth::user();
 
-
-        $results = $user->results()->get();
+        $results = $user->results();
 
         return view('results.index')->with('results', $results);
     }
