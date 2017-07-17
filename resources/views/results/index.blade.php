@@ -21,8 +21,8 @@
                 @foreach ($results as $result)
                     <div>
                         {{$result->eventname}}
-                        <a href="{{route('results.show', ['id' => $result->id])}}">View</a>
-                        <a href="">Edit</a>
+                        <a href="{{ route('results.show', $result->id) }}">View</a>
+                        <a href="{{ route('results.edit', $result->id) }}">Edit</a>
                         <a href="">Delete</a>
                     </div>
                 @endforeach

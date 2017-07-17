@@ -90,7 +90,9 @@ class ResultController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = Result::find($id);
+
+        return view('results.edit')->with('result', $result);
     }
 
     /**
