@@ -1,43 +1,43 @@
 CLASS PROPERTIES & RELATIONSHIPS:
 
 ****** RESULT ******
-A Result has a name
-A Result has a start date
-A Result has a end date
-A Result has a venue
-A Result has a user_id (foreign key)
+ X   A ResultGroup has a name
+ X   A ResultGroup has a start date
+ X   A ResultGroup has a end date
+ X   A ResultGroup has a venue
+ X   A ResultGroup has a user_id (foreign key)
 
+ X   A ResultGroup belongs to a User (One to Many)
+     A ResultGroup belongs to many Fleets (Many to Many)
 
 ****** RACE ******
-A Race has a number.
-A Race has a fleet.
-A Race has a distance.
-A Race has a start time.
+    A Race has a number.
+    A Race has a fleet.
+    A Race has a distance.
+    A Race has a start time.
 
-A Race belongs to a User.
-A Race belongs to a Result.
-A Race belongs to a Fleet ?
+    A Race belongs to a ResultGroup. (One to Many)
+    A Race belongs to many Boats (Many to Many)
 
 ****** BOAT ******
-A Boat has a name.
-A Boat has a rating.
-A Boat has a skipper.
+    A Boat has a name.
+    A Boat has a rating.
+    A Boat has a skipper.
 
-A Boat belongs to many Results.
-A Boat belongs to many Races
-A Boat has many Scores
-
+    A Boat belongs to many Races (Many to Many)
+    A Boat has many Scores  (One to Many)
 
 ****** FLEET ******
-a Fleet has a name.
+    A Fleet has a name.
 
-A Fleet has many Races.
+    A ResultGroup belongs to many Fleets (Many to Many)
+
 
 ****** SCORE ******
-A Score has points.
-A Score has a penalty point (default = 0).
-A Score has total points.
+    A Score has points.
+    A Score has a penalty point (default = 0).
+    A Score has total points.
 
-A Score belongs to a Race.
-A Score belongs to a Registrant.
-A Score belongs to a Boat.
+    A Score belongs to a Race.  (????)
+    A Score belongs to a Registrant.  (One to Many)
+    A Score belongs to a Boat.  (One to Many)
