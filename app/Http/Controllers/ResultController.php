@@ -104,7 +104,12 @@ class ResultController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    //     $result = Result::find($id);
+    //     $result->eventname = $request->input('eventname');
+    //     $result->venue = $request->input('venue');
+    //     $result->start_date = $request->input('start_date');
+    //     $result->end_date = $request->input('end_date');
+
     }
 
     /**

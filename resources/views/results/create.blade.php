@@ -11,14 +11,22 @@
         </div>
 
         </br>
-
+        <!-- HEADER -->
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <h1>Create New Results</h1>
             </div>
         </div>
+        <!-- CREATE FORM -->
         <form class="form-horizontal" method="post" action="{{route('results.store')}}">
             @include('results.partials.form')
+
+            <!-- SUBMIT -->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-primary" value="Create">
+                </div>
+            </div>            
         </form>
     </div>
 @endsection
