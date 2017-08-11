@@ -104,11 +104,24 @@ class ResultController extends Controller
      */
     public function update(Request $request, $id)
     {
-    //     $result = Result::find($id);
-    //     $result->eventname = $request->input('eventname');
-    //     $result->venue = $request->input('venue');
-    //     $result->start_date = $request->input('start_date');
-    //     $result->end_date = $request->input('end_date');
+        $result = Result::find($id);
+        $result->eventname = $request->input('eventname');
+        $result->venue = $request->input('venue');
+        $result->start_date = $request->input('start_date');
+        $result->end_date = $request->input('end_date');
+
+        if($result->save())
+        {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Results group was successfully edited!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error!');
+
+            return back()->withInput();
+        }
+
+        return redirect('results');
 
     }
 
