@@ -77,9 +77,10 @@ class ResultController extends Controller
      */
     public function show($id)
     {
+        $user = Auth::user();
         $result = Result::find($id);
 
-        return view('results.show')->with('result', $result);
+        return view('results.show')->with('result', $result)->with('user', $user);
     }
 
     /**
