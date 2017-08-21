@@ -20,10 +20,14 @@
                 <div class="panel-body">
                 @foreach ($results as $result)
                     <div>
-                        {{$result->eventname}}
-                        <a href="{{ route('results.show', $result->id) }}">View</a>
-                        <a href="{{ route('results.edit', $result->id) }}">Edit</a>
-                        <a href="">Delete</a>
+                        <form method="post" action="{{route('results.destroy', $result->id)}}">
+                            {{$result->eventname}}
+                            <a href="{{ route('results.show', $result->id) }}">View</a>
+                            <a href="{{ route('results.edit', $result->id) }}">Edit</a>
+                            {{ csrf_field() }}
+                            <button class="btn btn-default" type="submit">Delete</button>
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
                     </div>
                 @endforeach
                 </div>

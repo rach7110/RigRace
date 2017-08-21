@@ -111,8 +111,7 @@ class ResultController extends Controller
         $result->start_date = $request->input('start_date');
         $result->end_date = $request->input('end_date');
 
-        if($result->save())
-        {
+        if ($result->save()) {
             $request->session()->flash('message.level', 'success');
             $request->session()->flash('message.content', 'Results group was successfully edited!');
         } else {
@@ -132,8 +131,19 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $result = Result::find($id);
+
+        if ($result->delete()) {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Results group was successfully deleted!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error: there was a problem deleting your result group.');
+        }
+
+        return redirect()->route('results.index');
+
     }
 }
