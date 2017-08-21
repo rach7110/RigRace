@@ -27,7 +27,20 @@
 
                 <div class="panel-body">
                     <div>
-                        
+                        <label>Host:</label>
+                        {{ $result->venue }}
+                    </div>
+                    <div>
+                        <label>Start Date:</label>
+                        {{ $result->start_date }}
+                    </div>
+                    <div>
+                        <label>End Date:</label>
+                        {{ $result->end_date }}
+                    </div>
+                    <div>
+                        <label>User:</label>
+                        {{ $user->id}}
                     </div>
                 </div>
             </div>
