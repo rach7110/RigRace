@@ -122,7 +122,7 @@ class ResultController extends Controller
             return back()->withInput();
         }
 
-        return redirect('results');
+        return redirect()->route('results.show', $result->id);
 
     }
 
