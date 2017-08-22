@@ -16,10 +16,10 @@ class CreateBoatsTable extends Migration
         Schema::create('boats', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('result_id');
-            $table->string('boatname');
-            $table->string('skipper_first');
-            $table->string('skipper_last');
-            $table->integer('rating');
+            $table->string('boatname')->nullable();
+            $table->string('skipper_first')->nullable();
+            $table->string('skipper_last')->nullable();
+            $table->integer('rating')->nullable();
             $table->timestamps();
         });
     }
