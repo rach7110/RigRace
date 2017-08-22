@@ -7,11 +7,13 @@
     </a>
 
     <div class="row">
+        <!-- NEW BOAT -->
         <div class="pull-right right-margin">
-            <a href="">
+            <a href="{{ route('boats.create')}}">
                 <button class="btn btn-primary">Add Boat</button>
             </a>
         </div>
+        <!-- NEW RACE -->
         <div class="pull-right right-margin">
             <a href="">
                 <button class="btn btn-primary">Add Race</button>
