@@ -3,18 +3,20 @@ USER JOURNIES:
 X   a User can create a ResultGroup.  
 X   a User can view all their ResultGroups. 
 X   a User can view a ResultGroup. 
-    a User can edit a ResultGroup.
-    a User can delete a ResultGroup.
+X   a User can edit a ResultGroup.
+X   a User can delete a ResultGroup.
 
-    a User can create a Race for a Result.
-    a User can add a Boat to a Result.
+    a User can create a Boat (for a Result group).
+    a User can edit a Boat.
+    a User can delete a Boat (from a Result group).
 
     a User can create a Race.
     a User can view a Race. 
     a User can edit a Race.
     a User can delete a Race.
   
-    A User can add a Boat to a Race
+
+  ***** WIP ******
     A User can edit a Boat's name.
     A User can edit a Boat skipper.
     A User can edit a Boat rating.

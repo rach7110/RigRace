@@ -17,7 +17,7 @@ CLASS PROPERTIES & RELATIONSHIPS:
     A Race has a start time.
 
     A Race belongs to a ResultGroup. (One to Many)
-    A Race belongs to many Boats (Many to Many)
+    A Race belongs to many Boats (Many to Many) ??
 
 ****** BOAT ******
     A Boat has a name.
