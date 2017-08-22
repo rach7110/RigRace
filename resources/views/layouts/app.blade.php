@@ -70,30 +70,36 @@
                 </div>
             </div>
         </nav>
-        <!-- FLASH MESSAGES -->
-        @if(session()->has('message.level'))
         <div class="container">
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-10 alert alert-{{ session('message.level') }} alert-dismissible" role="alert"> 
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {!! session('message.content') !!}
+            <!-- FLASH MESSAGES -->
+            @if(session()->has('message.level'))
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8 alert alert-{{ session('message.level') }} alert-dismissible" role="alert"> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {!! session('message.content') !!}
+                    </div>
                 </div>
-            </div>
-        </div>
-        @endif
-        <!-- ERRORS -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+            @endif
+            <!-- ERRORS -->
+            @if ($errors->any())
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-8 alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
 
-        @endif
+            @endif
+        </div>
+
         <!-- CONTENT -->
         @yield('content')
     </div>
