@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="boatname" class="col-sm-2 control-label">Boat Name</label>
         <div class="col-sm-10">
-            <input type="text" name="boatname" id="boatname" class="form-control" placeholder="2017 Summer Series Races" value="@if(isset($boat)) {{ $boat->boatname }} @else {{ old('boatname') }} @endif ">
+            <input type="text" name="boatname" id="boatname" class="form-control" placeholder="" value="@if(isset($boat)) {{ $boat->boatname }} @else {{ old('boatname') }} @endif ">
         </div>
     </div>
     <!-- BOAT RATING -->

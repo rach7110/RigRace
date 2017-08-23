@@ -78,9 +78,10 @@ class ResultController extends Controller
     public function show(Result $result)
     {
         $user = Auth::user();
+        $boats = $result->boats;
 
         // return view('results.show')->with('result', $result)->with('user', $user);
-        return view('results.show', compact('result', 'user'));
+        return view('results.show', compact('result', 'user', 'boats'));
     }
 
     /**

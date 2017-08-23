@@ -14,7 +14,8 @@
         <!-- HEADER -->
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <h1>New Boat</h1>
+                <h4>{{ $result->eventname }}</h4>
+                <h1>Add Boat  </h1>
             </div>
         </div>
         <!-- CREATE FORM -->
