@@ -38,4 +38,4 @@ Auth::routes();
 Route::get('/home', 'ResultController@index')->name('home');
 
 Route::resource('results', 'ResultController');
-Route::resource('boats', 'BoatController');
+Route::resource('results.boats', 'BoatController');

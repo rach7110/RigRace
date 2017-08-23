@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
+use App\Boat;
+use App\Result;
 
 class BoatController extends Controller
 {
@@ -21,9 +25,9 @@ class BoatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($result)
     {
-        return view('boats.create');
+        return view('boats.create', compact('result'));
     }
 
     /**
@@ -32,7 +36,7 @@ class BoatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $result_id)
     {
         //
     }
@@ -45,7 +49,7 @@ class BoatController extends Controller
      */
     public function show($id)
     {
-        //
+        // return Boat::find($id);
     }
 
     /**

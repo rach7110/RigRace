@@ -18,7 +18,7 @@
             </div>
         </div>
         <!-- CREATE FORM -->
-        <form class="form-horizontal" method="post" action="{{route('results.store')}}">
+        <form class="form-horizontal" method="post" action="{{route('results.boats.store', $result)}}">
             @include('boats.partials.form')
 
             <!-- SUBMIT -->
