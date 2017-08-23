@@ -75,12 +75,12 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Result $result)
     {
         $user = Auth::user();
-        $result = Result::find($id);
 
-        return view('results.show')->with('result', $result)->with('user', $user);
+        // return view('results.show')->with('result', $result)->with('user', $user);
+        return view('results.show', compact('result', 'user'));
     }
 
     /**
@@ -89,11 +89,9 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Result $result)
     {
-        $result = Result::find($id);
-
-        return view('results.edit')->with('result', $result);
+        return view('results.edit', compact('result'));
     }
 
     /**
@@ -103,9 +101,8 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Result $result)
     {
-        $result = Result::find($id);
         $result->eventname = $request->input('eventname');
         $result->venue = $request->input('venue');
         $result->start_date = $request->input('start_date');
@@ -131,10 +128,8 @@ class ResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, Result $result)
     {
-        $result = Result::find($id);
-
         if ($result->delete()) {
             $request->session()->flash('message.level', 'success');
             $request->session()->flash('message.content', 'Results group was successfully deleted!');
