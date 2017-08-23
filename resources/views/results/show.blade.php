@@ -55,6 +55,23 @@
         </div>
     </div>
 
+    <!-- BOATS -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Boats</div>
+        <div class="panel-body">
+            @if(count($boats) == 0)
+                <p>No competing boats. Click 'Add Boat' to start scoring.</p>
+            @else
+                <ul>
+                    @foreach ($boats as $boat)
+                        <li>{{ $boat->boatname }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+    </div>
+
 </div>
     
 @endsection
