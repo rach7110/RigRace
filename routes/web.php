@@ -11,23 +11,6 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// TEST ROUTES:
-Route::get('/users/{user_id}', function($id) {
-    $user = DB::table('users')->find($id);
-
-    dd($user);
-});
-// REQUEST CLASS METHODS
-Route::get('request', function(Request $request) {
-    // dd($request->path());
-    // dd($request->url());
-    // dd($request->all());
-    // dd($request->input('someQuery'));
-    // dd($request->someQuery); //input as dynamic property 
-    // dd($request->input('someQuery', 'default value if empty'));
-
-});
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,5 +20,17 @@ Auth::routes();
 
 Route::get('/home', 'ResultController@index')->name('home');
 
+
+Route::get('/results/{id}/boats/create',    'ResultBoats@create')->name('results.boats.create');
+Route::post('/results{id}/boats',           'ResultBoats@store')->name('results.boats.store');
+
+
+// Route::resource('results.boats', 'BoatController');
+Route::get('/boats',            'BoatController@index');
+Route::get('boats/{id}',        'BoatController@show');
+Route::get('boats/{id}/edit',   'BoatController@edit');
+Route::put('boats/{id}',        'BoatController@update');
+Route::delete('boats/{id}',     'BoatController@destroy');
+
+
 Route::resource('results', 'ResultController');
-Route::resource('results.boats', 'BoatController');
