@@ -9,7 +9,7 @@
     <div class="row">
         <!-- NEW BOAT -->
         <div class="pull-right right-margin">
-            <a href="{{ route('results.boats.create', $result) }}">
+            <a href="{{ route('results.boats.create', $result->id) }}">
                 <button class="btn btn-primary">Add Boat</button>
             </a>
         </div>

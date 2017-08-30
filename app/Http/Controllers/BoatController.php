@@ -21,47 +21,6 @@ class BoatController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Result $result)
-    {
-        return view('boats.create', compact('result'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $result_id)
-    {
-        $boat = new Boat;
-        $boat->boatname = $request->input('boatname');
-        $boat->rating = $request->input('rating');
-        $boat->skipper_first = $request->input('skipper_first');
-        $boat->skipper_last = $request->input('skipper_last');
-        $boat->result_id = $result_id;
-
-        if($boat->save())
-        {
-            $request->session()->flash('message.level', 'success');
-            $request->session()->flash('message.content', 'Boat was successfully added!');
-        } else {
-            $request->session()->flash('message.level', 'danger');
-            $request->session()->flash('message.content', 'Error!');
-
-            return back()->withInput();
-        }
-
-        return redirect()->route('results.show', array($result_id));
-
-
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -69,7 +28,7 @@ class BoatController extends Controller
      */
     public function show($id)
     {
-        // return Boat::find($id);
+        return Boat::find($id);
     }
 
     /**
