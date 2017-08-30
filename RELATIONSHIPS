@@ -8,7 +8,17 @@ CLASS PROPERTIES & RELATIONSHIPS:
  X   A ResultGroup has a user_id (foreign key)
 
  X   A ResultGroup belongs to a User (One to Many)
+ X   A ResultGroup hasMany Boats (One to Many)
      A ResultGroup belongs to many Fleets (Many to Many)
+
+****** BOAT ******
+ X  A Boat has a name.
+ X  A Boat has a rating.
+ X  A Boat has a skipper.
+
+X  A Boat belongs to a Result group (One to Many)
+    A Boat belongs to many Result groups (Many to Many)??
+    A Boat has many Scores  (One to Many)
 
 ****** RACE ******
     A Race has a number.
@@ -19,13 +29,6 @@ CLASS PROPERTIES & RELATIONSHIPS:
     A Race belongs to a ResultGroup. (One to Many)
     A Race belongs to many Boats (Many to Many) ??
 
-****** BOAT ******
-    A Boat has a name.
-    A Boat has a rating.
-    A Boat has a skipper.
-
-    A Boat belongs to many Races (Many to Many)
-    A Boat has many Scores  (One to Many)
 
 ****** FLEET ******
     A Fleet has a name.
@@ -39,5 +42,4 @@ CLASS PROPERTIES & RELATIONSHIPS:
     A Score has total points.
 
     A Score belongs to a Race.  (????)
-    A Score belongs to a Registrant.  (One to Many)
     A Score belongs to a Boat.  (One to Many)

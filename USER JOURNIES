@@ -6,7 +6,7 @@ X   a User can view a ResultGroup.
 X   a User can edit a ResultGroup.
 X   a User can delete a ResultGroup.
 
-    a User can create a Boat (for a Result group).
+X   a User can create a Boat (for a Result group).
     a User can edit a Boat.
     a User can delete a Boat (from a Result group).
 
@@ -17,11 +17,6 @@ X   a User can delete a ResultGroup.
   
 
   ***** WIP ******
-    A User can edit a Boat's name.
-    A User can edit a Boat skipper.
-    A User can edit a Boat rating.
-
-
     A User can caluclate a Boat's corrected time when using Phrf Handicap.
 
     A User can Score a Boat
