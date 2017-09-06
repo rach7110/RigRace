@@ -72,8 +72,20 @@ class BoatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $boat = Boat::find($id);
+        $result_id = $boat->result_id;
+
+        if($boat->delete()) {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Boat was successfully deleted!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error: there was a problem deleting your boat.');
+        }
+
+        return redirect()->route('results.show', $result_id);
+        
     }
 }
