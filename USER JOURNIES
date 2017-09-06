@@ -6,9 +6,13 @@ X   a User can view a ResultGroup.
 X   a User can edit a ResultGroup.
 X   a User can delete a ResultGroup.
 
-X   a User can create a Boat (for a Result group).
-    a User can edit a Boat.
-    a User can delete a Boat (from a Result group).
+X   a User can create a Boat 
+X   a User can edit a Boat.
+X   a User can delete a Boat 
+
+TODO:
+    do not show edit and delete buttons on boat index page.
+    delete all boats that belong to a Result group when Result group is deleted.
 
     a User can create a Race.
     a User can view a Race. 
