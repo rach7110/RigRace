@@ -22,7 +22,6 @@ Route::get('/home', 'ResultController@index')->name('home');
 
 Route::resource('results', 'ResultController');
 
-Route::get('/results/{id}/boats',           'ResultBoats@index')->name('results.boats');
 Route::get('/results/{id}/boats/create',    'ResultBoats@create')->name('results.boats.create');
 Route::post('/results{id}/boats',           'ResultBoats@store')->name('results.boats.store');
 
