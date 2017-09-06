@@ -20,6 +20,8 @@
                         <div class="col-md-2">{{ $boat->rating}}</div>
                         <div class="col-md-2">{{ $boat->skipper_first}}</div>
                         <div class="col-md-2">{{ $boat->skipper_last}}</div>
+                        <div class="col-md-1"><a href="{{ route('boats.edit', $boat->id)}}">Edit</a></div>
+                        <div class="col-md-1">Delete</div>
                     </div>
                 @endforeach
             @endif

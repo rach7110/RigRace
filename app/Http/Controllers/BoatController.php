@@ -23,17 +23,6 @@ class BoatController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return Boat::find($id);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -41,7 +30,9 @@ class BoatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $boat = Boat::find($id);
+
+        return view('boats.edit')->with('boat', $boat);
     }
 
     /**
@@ -53,7 +44,26 @@ class BoatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $boat = Boat::find($id);
+        $boat->boatname = $request->input('boatname');
+        $boat->rating = $request->input('rating');
+        $boat->skipper_first = $request->input('skipper_first');
+        $boat->skipper_last = $request->input('skipper_last');
+
+        $result_id = $boat->result_id;
+
+        if($boat->save())
+        {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Boat was successfully edited!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error!');
+
+            return back()->withInput();
+        }
+
+        return redirect()->route('results.show',  array($result_id));
     }
 
     /**
