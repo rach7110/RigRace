@@ -17,7 +17,9 @@ class BoatController extends Controller
      */
     public function index()
     {
-        return Boat::all();
+        $boats = Boat::all();
+
+        return view('boats.index')->with('boats', $boats);
     }
 
     /**

@@ -20,17 +20,15 @@ Auth::routes();
 
 Route::get('/home', 'ResultController@index')->name('home');
 
+Route::resource('results', 'ResultController');
 
+Route::get('/results/{id}/boats',           'ResultBoats@index')->name('results.boats');
 Route::get('/results/{id}/boats/create',    'ResultBoats@create')->name('results.boats.create');
 Route::post('/results{id}/boats',           'ResultBoats@store')->name('results.boats.store');
 
-
-// Route::resource('results.boats', 'BoatController');
 Route::get('/boats',            'BoatController@index');
 Route::get('boats/{id}',        'BoatController@show');
 Route::get('boats/{id}/edit',   'BoatController@edit');
 Route::put('boats/{id}',        'BoatController@update');
 Route::delete('boats/{id}',     'BoatController@destroy');
 
-
-Route::resource('results', 'ResultController');
