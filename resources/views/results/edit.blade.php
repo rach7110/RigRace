@@ -18,9 +18,7 @@
         </div>
         <!-- EDIT FORM -->
         <form class="form-horizontal" method="POST" action="{{route('results.update', ['$id' => $result->id])}}">
-            {{ method_field('PUT') }}
-            <!-- equivalent of helper method above   -->
-            <!-- <input type="hidden" name="_method" value="PUT">   -->
+            <input type="hidden" name="_method" value="PUT">  
             @include('results.partials.form')
 
             <!-- SUBMIT -->
