@@ -130,6 +130,8 @@ class ResultController extends Controller
      */
     public function destroy(Request $request, Result $result)
     {
+        $boats = $result->boats()->delete();
+
         if ($result->delete()) {
             $request->session()->flash('message.level', 'success');
             $request->session()->flash('message.content', 'Results group was successfully deleted!');
