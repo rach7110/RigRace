@@ -11,8 +11,9 @@ X   a User can edit a Boat.
 X   a User can delete a Boat 
 
 TODO:
-    do not show edit and delete buttons on boat index page.
-    delete all boats that belong to a Result group when Result group is deleted.
+ X  do not show edit and delete buttons on boat index page.
+ X  delete all boats that belong to a Result group when Result group is deleted.
+    delete all races that belong to a Result group when Result group is deleted.
 
     a User can create a Race.
     a User can view a Race. 
