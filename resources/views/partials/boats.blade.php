@@ -20,7 +20,10 @@
                         <div class="col-md-2">{{ $boat->rating}}</div>
                         <div class="col-md-2">{{ $boat->skipper_first}}</div>
                         <div class="col-md-2">{{ $boat->skipper_last}}</div>
-                        <div class="col-md-2">{{ $boat->result_id}}</div>
+                        <!-- SHOW ENVENT NAME ON BOATS INDEX PAGE: (TESTING) -->
+                        @if (Request::is('boats'))
+                            <div class="col-md-2"><h6>{{ $boat->result->eventname }}</h6></div>
+                        @endif
                         <!-- ONLY SHOW 'EDIT' & 'DELETE' FOR BOATS ON A RESULT PAGE -->
                         @if (Request::is('results/*'))
                             <!-- EDIT -->
