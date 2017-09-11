@@ -16,19 +16,18 @@ CLASS PROPERTIES & RELATIONSHIPS:
  X  A Boat has a rating.
  X  A Boat has a skipper.
 
-X  A Boat belongs to a Result group (One to Many)
-    A Boat belongs to many Result groups (Many to Many)??
+X   A Boat belongs to a Result group (One to Many)
     A Boat has many Scores  (One to Many)
+    A Boat belongs to many Result groups (Many to Many)??
 
 ****** RACE ******
-    A Race has a number.
-    A Race has a fleet.
-    A Race has a distance.
-    A Race has a start time.
+X   A Race has a number.
+X   A Race has a distance.
+X   A Race has a start time.
+X   A Score has a result_id (foreign key)
+    A Race has a fleet. (??)
 
-    A Race belongs to a ResultGroup. (One to Many)
-    A Race belongs to many Boats (Many to Many) ??
-
+X   A Race belongs to a ResultGroup. (One to Many)
 
 ****** FLEET ******
     A Fleet has a name.
@@ -40,6 +39,9 @@ X  A Boat belongs to a Result group (One to Many)
     A Score has points.
     A Score has a penalty point (default = 0).
     A Score has total points.
+    A Score has a boat_id (foreign key)
+    A Score has a race_id (foreign key)
 
-    A Score belongs to a Race.  (????)
+
+    A Score belongs to a Race.  (One to Many)
     A Score belongs to a Boat.  (One to Many)
