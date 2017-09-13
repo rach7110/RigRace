@@ -60,6 +60,31 @@
     <!-- BOATS -->
     @include('partials.boats')
 
+    <!-- RESULTS -->
+     <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Results</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-1">Race</div>
+                <div class="col-md-2"></div>
+                <div class="col-md-1">Distance</div>
+                <div class="col-md-1">Units</div>
+            </div>
+            @foreach ($races as $race)
+                <div class="row">
+                    <div class="col-md-1">{{ $race->number }}</div>
+                    <div class="col-md-2">{{ $race->name }}</div>
+                    <div class="col-md-1">{{ $race->distance}}</div>
+                    <div class="col-md-1">{{ $race->distance_units}}</div>
+                </div>
+            @endforeach
+
+        </div>
+    </div>
+
 </div>
     
 @endsection

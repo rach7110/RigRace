@@ -79,8 +79,9 @@ class ResultController extends Controller
     {
         $user = Auth::user();
         $boats = $result->boats;
+        $races = $result->races;
 
-        return view('results.show', compact('result', 'user', 'boats'));
+        return view('results.show', compact('result', 'user', 'boats', 'races'));
     }
 
     /**
