@@ -10,7 +10,7 @@ use App\Result;
 
 
 
-class ResultBoats extends Controller
+class ResultBoatsController extends Controller
 {
     public function create($id)
     {
