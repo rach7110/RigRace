@@ -32,6 +32,7 @@ class RaceController extends Controller
         return view('races.edit', compact('race'));
     }
 
+
     public function update(Request $request, $id)
     {
         $race = Race::find($id);
@@ -56,14 +57,20 @@ class RaceController extends Controller
         return redirect()->route('results.show', array($result_id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Race  $race
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Race $race)
+
+    public function destroy(Request $request, $id)
     {
-        //
+        $race = Race::find($id);
+        $result_id = $race->result_id;
+
+        if ($race->delete()) {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Results group was successfully deleted!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error: there was a problem deleting your race.');
+        }
+
+        return redirect()->route('results.show', $result_id);   
     }
 }
