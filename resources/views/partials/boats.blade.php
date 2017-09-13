@@ -5,6 +5,12 @@
         </div>
 
         <div class="panel-body">
+         <!-- NEW BOAT -->
+            <div class="pull-right right-margin">
+                <a href="{{ route('results.boats.create', $result->id) }}">
+                    <button class="btn btn-primary">+ Boat</button>
+                </a>
+            </div>
             @if(count($boats) == 0)
                 <p>No competing boats. Click 'Add Boat' to start scoring.</p>
             @else

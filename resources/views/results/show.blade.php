@@ -5,21 +5,6 @@
     <a href="{{ route('results.index') }}">
         < All Results
     </a>
-
-    <div class="row">
-        <!-- NEW BOAT -->
-        <div class="pull-right right-margin">
-            <a href="{{ route('results.boats.create', $result->id) }}">
-                <button class="btn btn-primary">Add Boat</button>
-            </a>
-        </div>
-        <!-- NEW RACE -->
-        <div class="pull-right right-margin">
-            <a href="{{ route('results.races.create', $result->id) }}">
-                <button class="btn btn-primary">Add Race</button>
-            </a>
-        </div>
-    </div>
     </br>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -66,21 +51,30 @@
             <h3 class="panel-title">Results</h3>
         </div>
         <div class="panel-body">
-
-            <div class="row">
-                <div class="col-md-1">Race</div>
-                <div class="col-md-2"></div>
-                <div class="col-md-1">Distance</div>
-                <div class="col-md-1">Units</div>
-            </div>
-            @foreach ($races as $race)
+        <!-- NEW RACE -->
+        <div class="pull-right right-margin">
+            <a href="{{ route('results.races.create', $result->id) }}">
+                <button class="btn btn-primary">+ Race</button>
+            </a>
+        </div>
+            @if(count($races) == 0)
+                <p>No races yet. Click 'Add Races' to start scoring.</p>
+            @else
                 <div class="row">
-                    <div class="col-md-1">{{ $race->number }}</div>
-                    <div class="col-md-2">{{ $race->name }}</div>
-                    <div class="col-md-1">{{ $race->distance}}</div>
-                    <div class="col-md-1">{{ $race->distance_units}}</div>
+                    <div class="col-md-1">Race</div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-1">Distance</div>
+                    <div class="col-md-1">Units</div>
                 </div>
-            @endforeach
+                @foreach ($races as $race)
+                    <div class="row">
+                        <div class="col-md-1">{{ $race->number }}</div>
+                        <div class="col-md-2">{{ $race->name }}</div>
+                        <div class="col-md-1">{{ $race->distance}}</div>
+                        <div class="col-md-1">{{ $race->distance_units}}</div>
+                    </div>
+                @endforeach
+            @endif
 
         </div>
     </div>
