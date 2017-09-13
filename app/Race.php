@@ -7,7 +7,7 @@ use App\Result;
 
 class Race extends Model
 {
-    protected $fillable = ['distance', 'start_time'];
+    protected $fillable = ['name','distance', 'start_time'];
 
 
     public function result() 
