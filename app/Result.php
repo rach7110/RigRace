@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Boat;
+use App\Race;
 
 class Result extends Model
 {
@@ -18,5 +19,10 @@ class Result extends Model
     public function boats()
     {
         return $this->hasMany(Boat::class);
+    }
+
+    public function races()
+    {
+        return $this->hasMany(Race::class);
     }
 }
