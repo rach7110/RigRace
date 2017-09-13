@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Race;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/races', function () {
+    $races = Race::all();
+
+    foreach ($races as $race) {
+        echo "<p>" . $race->number . "</p>";
+    }
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,11 +31,11 @@ Route::get('/home', 'ResultController@index')->name('home');
 
 Route::resource('results', 'ResultController');
 
-Route::get('/results/{id}/boats/create',    'ResultBoats@create')->name('results.boats.create');
-Route::post('/results{id}/boats',           'ResultBoats@store') ->name('results.boats.store');
+Route::get('/results/{id}/boats/create',    'ResultBoatsController@create')->name('results.boats.create');
+Route::post('/results{id}/boats',           'ResultBoatsController@store') ->name('results.boats.store');
 
-Route::get('/results/{id}/races/create',   'ResultRaces@create')->name('results.races.create');
-Route::get('/results/{id}/races/',         'ResultRaces@store') ->name('results.races.store');
+Route::get('/results/{id}/races/create',   'ResultRacesController@create')->name('results.races.create');
+Route::post('/results/{id}/races/',         'ResultRacesController@store') ->name('results.races.store');
 
 Route::get('/boats',            'BoatController@index')->name('boats.index');
 Route::get('boats/{id}/edit',   'BoatController@edit')->name('boats.edit');
