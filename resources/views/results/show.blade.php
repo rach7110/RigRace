@@ -15,7 +15,7 @@
         </div>
         <!-- NEW RACE -->
         <div class="pull-right right-margin">
-            <a href="">
+            <a href="{{ route('results.races.create', $result->id) }}">
                 <button class="btn btn-primary">Add Race</button>
             </a>
         </div>

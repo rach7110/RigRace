@@ -1,0 +1,30 @@
+    {{ csrf_field() }}
+    <!-- RACE NAME -->
+    <div class="form-group">
+        <label for="race_name" class="col-sm-2 control-label">Race Name</label>
+        <div class="col-sm-10">
+            <input type="text" name="name" id="race_name" class="form-control" value="@if(isset($race)) {{ $race->name }} @elseif(old('name')) {{ old('name') }} @endif" placeholder='Race 1'>
+        </div>
+    </div>
+    <!-- DISTANCE-->
+    <div class="form-group">
+        <label for="distance" class="col-sm-2 control-label">Distance</label>
+        <div class="col-sm-10">
+            <input type="number" name="distance" class="form-control" id="distance" value="@if(isset($race)) {{ $race->distance }} @elseif(old('name')) {{ old('distance') }} @endif">
+        </div>
+    </div>
+
+    <!-- DISTANCE UNITS-->
+    <div class="form-group">
+        <label for="distance_units" class="col-sm-2 control-label">Units</label>
+        <div class="col-sm-10">
+            <input type="text" name="distance_units" class="form-control" id="distance_units" value="@if(isset($race)) {{ $race->distance_units }} @elseif(old('name')) {{ old('distance_units') }} @endif">
+        </div>
+    </div>
+    <!-- START TIME -->
+    <div class="form-group">
+        <label for="start_time" class="col-sm-2 control-label">Start Time</label>
+        <div class="col-sm-10">
+            <input type="datetime-local" name="start_time" class="form-control" id="start_time" placeholder="" value="@if(isset($race)) {{ $race->start_time }} @else {{ old('start_time') }} @endif "/>
+        </div>
+    </div>
