@@ -35,7 +35,6 @@
                             <!-- EDIT -->
                             <div class="col-md-1"><a href="{{ route('boats.edit', $boat->id)}}">Edit</a></div>
                             <!-- DELETE -->
-                            <!-- <div class="col-md-1">Delete</div> -->
                             <form method="post" action="{{ route('boats.destroy', $boat->id) }}">
                                 {{ csrf_field() }}
                                 <button class="btn btn-danger btn-link" type="submit" style="padding-top: 0px; border-top-width: 0px;">Delete</button>

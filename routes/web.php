@@ -13,14 +13,6 @@ use App\Race;
 |
 */
 
-Route::get('/races', function () {
-    $races = Race::all();
-
-    foreach ($races as $race) {
-        echo "<p>" . $race->number . "</p>";
-    }
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,9 +27,15 @@ Route::get('/results/{id}/boats/create',    'ResultBoatsController@create')->nam
 Route::post('/results{id}/boats',           'ResultBoatsController@store') ->name('results.boats.store');
 
 Route::get('/results/{id}/races/create',   'ResultRacesController@create')->name('results.races.create');
-Route::post('/results/{id}/races/',         'ResultRacesController@store') ->name('results.races.store');
+Route::post('/results/{id}/races/',        'ResultRacesController@store') ->name('results.races.store');
 
 Route::get('/boats',            'BoatController@index')->name('boats.index');
 Route::get('boats/{id}/edit',   'BoatController@edit')->name('boats.edit');
 Route::put('boats/{id}',        'BoatController@update')->name('boats.update');
 Route::delete('boats/{id}',     'BoatController@destroy')->name('boats.destroy');
+
+Route::get('races/{id}/edit',  'RaceController@edit')->name('races.edit');
+Route::put('races/{id}',        'RaceController@update')->name('races.update');
+Route::delete('races/{id}',     'RaceController@destroy')->name('races.destroy');
+
+

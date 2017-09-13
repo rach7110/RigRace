@@ -12,7 +12,7 @@ X   a User can delete a Boat
 
 X   a User can create a Race.
 X   a User can view Races on Result view page. 
-    a User can edit a Race.
+X   a User can edit a Race.
     a User can delete a Race.
 
 TODO:

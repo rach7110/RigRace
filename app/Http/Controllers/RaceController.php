@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Race;
 use Illuminate\Http\Request;
+use App\Race;
+use App\Result;
 
 class RaceController extends Controller
 {
@@ -17,59 +18,42 @@ class RaceController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Race  $race
-     * @return \Illuminate\Http\Response
-     */
     public function show(Race $race)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Race  $race
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Race $race)
+
+    public function edit($id)
     {
-        //
+        $race = Race::find($id);
+
+        return view('races.edit', compact('race'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Race  $race
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Race $race)
+    public function update(Request $request, $id)
     {
-        //
+        $race = Race::find($id);
+        $result_id = $race->result_id;
+
+        $race->name = $request->input('name');
+        $race->distance = $request->input('distance');
+        $race->distance_units = $request->input('distance_units');
+        $race->start_time = $request->input('start_time');
+
+        if($race->save())
+        {
+            $request->session()->flash('message.level', 'success');
+            $request->session()->flash('message.content', 'Race was successfully edited!');
+        } else {
+            $request->session()->flash('message.level', 'danger');
+            $request->session()->flash('message.content', 'Error!');
+
+            return back()->withInput();
+        }
+
+        return redirect()->route('results.show', array($result_id));
     }
 
     /**

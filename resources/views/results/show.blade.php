@@ -48,7 +48,7 @@
     <!-- RESULTS -->
      <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Results</h3>
+            <h3 class="panel-title">Races</h3>
         </div>
         <div class="panel-body">
         <!-- NEW RACE -->
@@ -72,6 +72,14 @@
                         <div class="col-md-2">{{ $race->name }}</div>
                         <div class="col-md-1">{{ $race->distance}}</div>
                         <div class="col-md-1">{{ $race->distance_units}}</div>
+                        <!-- EDIT -->
+                        <div class="col-md-1"><a href="{{ route('races.edit', $race->id)}}">Edit</a></div>
+                        <!-- DELETE -->
+                        <form method="post" action="{{ route('races.destroy', $race->id) }}">
+                            {{ csrf_field() }}
+                            <button class="btn btn-danger btn-link" type="submit" style="padding-top: 0px; border-top-width: 0px;">Delete</button>
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
                     </div>
                 @endforeach
             @endif
